@@ -48,7 +48,7 @@ Real-time construction site safety monitoring powered by a custom-trained YOLOv8
 ### Run Locally
 ```bash
 # Clone the repository
-git clone https://huggingface.co/spaces/YOUR_USERNAME/ppe-compliance-detector
+git clone https://huggingface.co/spaces/Ezeobi-O/ppe-compliance-detector
 cd ppe-compliance-detector
 
 # Install dependencies
