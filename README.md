@@ -1,22 +1,3 @@
----
-title: PPE Compliance Detector
-emoji: 🦺
-colorFrom: yellow
-colorTo: red
-sdk: gradio
-sdk_version: 4.44.0
-app_file: app.py
-pinned: false
-license: mit
-tags:
-  - object-detection
-  - yolov8
-  - computer-vision
-  - safety
-  - ppe-detection
-  - construction
----
-
 # PPE Compliance Detector
 
 Real-time construction site safety monitoring powered by a custom-trained YOLOv8 model. Detects Personal Protective Equipment (PPE) compliance and flags safety violations instantly.
@@ -115,30 +96,6 @@ Trained on the [Construction Site Safety Dataset](https://universe.roboflow.com/
 
 ---
 
-## 📁 Project Structure
-
-```
-ppe-detection/
-├── app.py                    # Gradio application
-├── requirements.txt          # Python dependencies
-├── ppe_detector_best.pt      # Trained model weights
-├── train_ppe_detector.ipynb  # Training notebook (Colab)
-└── README.md                 # Documentation
-```
-
----
-
-## 🏋️ Train Your Own Model
-
-1. Open `train_ppe_detector.ipynb` in Google Colab
-2. Enable T4 GPU runtime
-3. Add your Roboflow API key
-4. Run all cells (~45-60 min training)
-5. Download `ppe_detector_best.pt`
-6. Upload to this Space
-
----
-
 ## 📊 Compliance Score Interpretation
 
 | Score | Status | Action Required |
@@ -174,9 +131,3 @@ Concentration: Artificial Intelligence
 ## 📝 License
 
 MIT License — free for personal and commercial use.
-
----
-
-<p align="center">
-  <strong>Built for safety. Powered by AI.</strong> 🦺
-</p>
