@@ -1,22 +1,3 @@
----
-title: PPE Compliance Detector
-emoji: 🦺
-colorFrom: yellow
-colorTo: red
-sdk: gradio
-sdk_version: 4.44.0
-app_file: app.py
-pinned: false
-license: mit
-tags:
-  - object-detection
-  - yolov8
-  - computer-vision
-  - safety
-  - ppe-detection
-  - construction
----
-
 # PPE Compliance Detector
 
 Real-time construction site safety monitoring powered by a custom-trained YOLOv8 model. Detects Personal Protective Equipment (PPE) compliance and flags safety violations instantly.
