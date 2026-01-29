@@ -130,4 +130,4 @@ Concentration: Artificial Intelligence
 
 ## 📝 License
 
-MIT License — free for personal and commercial use.
+MIT License - free for personal and commercial use.
