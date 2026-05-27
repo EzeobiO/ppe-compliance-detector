@@ -25,7 +25,7 @@ jobs:
 
       - name: Push to Hugging Face Space
         run: |
-          git remote add hf https://EzeobiO:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/EzeobiO/ppe-compliance-detector
+          git remote add hf https://EzeobiO:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/Ezeobi-O/ppe-compliance-detector
           git push hf main
         # If the Space has a divergent history from a manual HF init, this push will
         # fail. In that case, re-run the step with `git push hf main --force` once to
