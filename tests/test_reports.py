@@ -1,4 +1,4 @@
-"""Tests for reports.py: render_markdown, render_text, write_report_tempfile."""
+#Tests for reports.py: render_markdown, render_text, write_report_tempfile.
 from __future__ import annotations
 
 import os
@@ -31,9 +31,7 @@ def _summary(safe: int = 0, violations: int = 0, context: int = 0) -> Compliance
     )
 
 
-# ---------------------------------------------------------------------------
 # render_markdown
-# ---------------------------------------------------------------------------
 
 def test_render_markdown_empty_detections() -> None:
     result = render_markdown([], _summary(), 0.1)
@@ -72,9 +70,7 @@ def test_render_markdown_critical_label() -> None:
     assert "CRITICAL" in result
 
 
-# ---------------------------------------------------------------------------
 # render_text
-# ---------------------------------------------------------------------------
 
 def test_render_text_empty_detections() -> None:
     result = render_text([], _summary(), 0.1)
@@ -106,9 +102,7 @@ def test_render_text_contains_inference_time() -> None:
     assert "INFERENCE TIME:" in result
 
 
-# ---------------------------------------------------------------------------
 # write_report_tempfile
-# ---------------------------------------------------------------------------
 
 @pytest.fixture
 def written_report() -> tuple[str, str]:  # type: ignore[type-arg]

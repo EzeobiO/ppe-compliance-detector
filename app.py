@@ -1,5 +1,4 @@
-"""Entry point for the PPE Compliance Detector.
-
+"""Main entry point for the PPE Compliance Detector.
 Loads the model, builds the Gradio UI, and launches the app.
 """
 from __future__ import annotations

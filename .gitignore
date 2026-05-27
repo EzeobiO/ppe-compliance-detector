@@ -16,12 +16,6 @@ ppe_report_*.txt
 .idea/
 .DS_Store
 Thumbs.db
-.claude/
-.cursor/
 
 # YOLO training runs
 runs/
-
-# Legacy monolith kept locally for reference only
-ppe-detection/
-HANDOFF.md

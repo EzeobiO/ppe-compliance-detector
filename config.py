@@ -46,6 +46,6 @@ LABEL_FONT_THICKNESS: int = 2
 LABEL_PADDING_PX: int = 10
 VIOLATION_TAG_FONT_SCALE: float = 0.5
 
-# ----- Compliance thresholds (percent) -----
+# ----- Compliance thresholds (percentage) -----
 COMPLIANCE_EXCELLENT_PCT: float = 90.0
 COMPLIANCE_WARNING_PCT: float = 70.0

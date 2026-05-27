@@ -18,11 +18,11 @@ tags:
   - construction
 ---
 
-# 🦺 PPE Compliance Detector
+# PPE Compliance Detector
 
 Real-time construction site safety monitoring powered by a custom-trained YOLOv8s model. Detects Personal Protective Equipment (PPE) compliance and flags violations instantly.
 
-**Developed by [Ebube Ezeobi](https://obie-ezeobi.vercel.app)**
+**Developed by [Ebube Ezeobi](https://obieezeobi.vercel.app)**
 
 [![CI](https://github.com/EzeobiO/ppe-compliance-detector/actions/workflows/ci.yml/badge.svg)](https://github.com/EzeobiO/ppe-compliance-detector/actions/workflows/ci.yml)
 [![Deploy](https://github.com/EzeobiO/ppe-compliance-detector/actions/workflows/deploy.yml/badge.svg)](https://github.com/EzeobiO/ppe-compliance-detector/actions/workflows/deploy.yml)
@@ -38,13 +38,13 @@ Real-time construction site safety monitoring powered by a custom-trained YOLOv8
 
 | Detection | Status | Visual |
 |-----------|--------|--------|
-| Hardhat | ✅ Compliant | 🟢 Green box |
-| Mask | ✅ Compliant | 🟢 Green box |
-| Safety Vest | ✅ Compliant | 🟢 Green box |
-| NO-Hardhat | 🚨 Violation | 🔴 Red box |
-| NO-Mask | 🚨 Violation | 🔴 Red box |
-| NO-Safety Vest | 🚨 Violation | 🔴 Red box |
-| Person, Safety Cone, machinery, vehicle | ℹ️ Context | 🟠 Orange box |
+| Hardhat | Compliant | Green box |
+| Mask | Compliant | Green box |
+| Safety Vest | Compliant | Green box |
+| NO-Hardhat | Violation | Red box |
+| NO-Mask | Violation | Red box |
+| NO-Safety Vest | Violation | Red box |
+| Person, Safety Cone, machinery, vehicle | Context | Orange box |
 
 ---
 
@@ -52,14 +52,13 @@ Real-time construction site safety monitoring powered by a custom-trained YOLOv8
 
 | Feature | Description |
 |---------|-------------|
-| 📷 **Image Upload** | Analyze site photos for PPE compliance |
-| 🎥 **Live Webcam** | Real-time monitoring with FPS counter |
-| 📊 **Compliance Scoring** | Percentage-based safety rating (safe ÷ relevant detections) |
-| 📋 **Markdown Report** | In-UI breakdown of all detections and violations |
-| 💾 **Download Report** | Export compliance report as a plain-text `.txt` file |
-| 📜 **Scan History** | Session log of the last 10 violation events |
-| 🔊 **Audio Alert** | Browser beep on violation detection (2-second cooldown) |
-| 🎚️ **Confidence Slider** | Adjustable detection threshold (default 0.35) |
+| **Image Upload** | Analyze site photos for PPE compliance |
+| **Live Webcam** | Real-time monitoring with FPS counter |
+| **Compliance Scoring** | Percentage-based safety rating (safe ÷ relevant detections) |
+| **Markdown Report** | In-UI breakdown of all detections and violations |
+| **Download Report** | Export compliance report as a plain-text `.txt` file |
+| **Scan History** | Session log of the last 10 violation events |
+| **Confidence Slider** | Adjustable detection threshold (default 0.35) |
 
 ---
 
@@ -125,13 +124,6 @@ ppe-compliance-detector/
 ---
 
 ## Deployment
-
-Every push to `main` triggers `deploy.yml`, which runs CI (lint + tests) via the
-reusable `ci.yml` first. The Space is only updated if all checks pass.
-
-**Required secret:** add `HF_TOKEN` (a Hugging Face write token) to your GitHub
-repository at Settings → Secrets and variables → Actions.
-
 The live Space: [huggingface.co/spaces/Ezeobi-O/ppe-compliance-detector](https://huggingface.co/spaces/Ezeobi-O/ppe-compliance-detector)
 
 ---
@@ -161,10 +153,10 @@ pytest -v
 
 | Score | Status | Meaning |
 |-------|--------|---------|
-| ≥ 90% | ✅ Excellent | Standards maintained |
-| 70–89% | ⚠️ Needs Attention | Violations present |
-| < 70% | 🚨 Critical | Immediate action required |
-| N/A | ⚪ No PPE detections | Only context classes in frame |
+| ≥ 90% | Excellent | Standards maintained |
+| 70–89% | Needs Attention | Violations present |
+| < 70% | Critical | Immediate action required |
+| N/A | No PPE detections | Only context classes in frame |
 
 ---
 
@@ -173,7 +165,7 @@ pytest -v
 **Ebube Ezeobi**  
 Computer Science @ Kennesaw State University — Concentration: Artificial Intelligence
 
-- 🌐 [Portfolio](https://obie-ezeobi.vercel.app)
+- 🌐 [Portfolio](https://obieezeobi.vercel.app)
 - 💻 [GitHub](https://github.com/EzeobiO)
 - 💼 [LinkedIn](https://linkedin.com/in/ezeobio)
 

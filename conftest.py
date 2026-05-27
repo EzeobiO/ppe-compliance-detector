@@ -1,4 +1,4 @@
-"""Root conftest — makes project-root modules importable from tests/."""
+#Root conftest — makes project-root modules importable from tests/.
 from __future__ import annotations
 
 import sys

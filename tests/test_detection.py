@@ -7,7 +7,7 @@ from detection import Detection, classify_by_id, extract_detections, summarize
 
 
 # ---------------------------------------------------------------------------
-# classify_by_id
+# Classify by ID
 # ---------------------------------------------------------------------------
 
 @pytest.mark.parametrize("cls_id", [1, 2, 4, 11])
@@ -31,7 +31,7 @@ def test_classify_unknown_defaults_to_context(cls_id: int) -> None:
 
 
 # ---------------------------------------------------------------------------
-# summarize helpers
+# Summary Helpers
 # ---------------------------------------------------------------------------
 
 def _det(status: str) -> Detection:
@@ -45,7 +45,7 @@ def _det(status: str) -> Detection:
 
 
 # ---------------------------------------------------------------------------
-# summarize
+# Summary Test
 # ---------------------------------------------------------------------------
 
 def test_summarize_empty_list() -> None:
@@ -80,7 +80,6 @@ def test_summarize_mixed() -> None:
 
 
 def test_summarize_only_context_has_no_rate() -> None:
-    # The original code wrongly returned 100% on context-only frames.
     s = summarize([_det("context"), _det("context")])
     assert s.context == 2
     assert s.safe == 0
@@ -95,7 +94,7 @@ def test_summarize_counts_total() -> None:
 
 
 # ---------------------------------------------------------------------------
-# extract_detections (via lightweight fakes — no torch required)
+# Extract_detections using lightweight fakes 
 # ---------------------------------------------------------------------------
 
 class _FakeBox:
