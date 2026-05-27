@@ -1,0 +1,2 @@
+# ppe-detection/ is the original monolithic code kept for reference; exclude it.
+exclude = ["ppe-detection"]

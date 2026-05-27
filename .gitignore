@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# Generated reports (use tempfile; don't commit leaked outputs)
+ppe_report_*.txt
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# YOLO training runs
+runs/
+
+# Legacy monolith kept locally for reference only
+ppe-detection/
+HANDOFF.md
