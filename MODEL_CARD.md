@@ -42,17 +42,17 @@ Source: https://universe.roboflow.com/roboflow-universe-projects/construction-si
 | ID | Class | Role |
 |----|-------|------|
 | 0 | Excavator | Context |
-| 1 | Gloves | ✅ Safe / PPE |
-| 2 | Hardhat | ✅ Safe / PPE |
+| 1 | Gloves | Safe / PPE |
+| 2 | Hardhat | Safe / PPE |
 | 3 | Ladder | Context |
-| 4 | Mask | ✅ Safe / PPE |
-| 5 | NO-Hardhat | 🚨 Violation |
-| 6 | NO-Mask | 🚨 Violation |
-| 7 | NO-Safety Vest | 🚨 Violation |
+| 4 | Mask | Safe / PPE |
+| 5 | NO-Hardhat | Violation |
+| 6 | NO-Mask | Violation |
+| 7 | NO-Safety Vest | Violation |
 | 8 | Person | Context |
 | 9 | SUV | Context |
 | 10 | Safety Cone | Context |
-| 11 | Safety Vest | ✅ Safe / PPE |
+| 11 | Safety Vest | Safe / PPE |
 | 12 | bus | Context |
 | 13 | dump truck | Context |
 | 14 | fire hydrant | Context |
@@ -114,5 +114,5 @@ The following limitations are based on general properties of the training setup 
 
 ## Developer
 
-**Ebube Ezeobi** — Computer Science (AI concentration), Kennesaw State University  
-[Portfolio](https://obie-ezeobi.vercel.app) · [GitHub](https://github.com/EzeobiO) · [LinkedIn](https://linkedin.com/in/ezeobio)
+**Ebube Ezeobi** 
+[Portfolio](https://obieezeobi.vercel.app) · [GitHub](https://github.com/EzeobiO) · [LinkedIn](https://linkedin.com/in/ezeobio)

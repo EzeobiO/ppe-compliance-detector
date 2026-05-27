@@ -1,6 +1,5 @@
 ---
 title: PPE Compliance Detector
-emoji: 🦺
 colorFrom: yellow
 colorTo: red
 sdk: gradio

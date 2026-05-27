@@ -8,10 +8,10 @@ __pycache__/
 dist/
 build/
 
-# Generated reports (use tempfile; don't commit leaked outputs)
+# Generated reports
 ppe_report_*.txt
 
-# IDE / OS / AI tooling
+# IDE / OS tooling
 .vscode/
 .idea/
 .DS_Store

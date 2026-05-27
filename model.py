@@ -1,11 +1,4 @@
-"""YOLO model loading with explicit error handling.
-
-The previous app.py used a bare `except:` on model loading, which silently
-fell back to vanilla YOLOv8s for any error — including unrelated bugs.
-The fallback model doesn't have PPE classes, so the app would appear to
-work but produce useless detections. This module makes the failure modes
-explicit and logged.
-"""
+#YOLO model loading with explicit error handling.
 from __future__ import annotations
 
 import logging
