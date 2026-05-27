@@ -19,3 +19,7 @@ Thumbs.db
 
 # YOLO training runs
 runs/
+
+# Example images — not ignored, but add each one explicitly:
+#   git add examples/site_01.jpg ... examples/site_06.jpg
+# Do NOT use `git add examples/` or `git add .` until all 6 are ready.

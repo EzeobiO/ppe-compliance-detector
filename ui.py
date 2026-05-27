@@ -11,6 +11,7 @@ from datetime import datetime
 from typing import Any
 
 import gradio as gr
+from gradio.themes.utils import fonts
 
 from config import (
     ALERT_COOLDOWN_SECONDS,
@@ -129,11 +130,11 @@ def build_demo(
         if summary.compliance_rate is None:
             status_text = "**Scanning...**"
         elif summary.compliance_rate >= 90:
-            status_text = "**✅ COMPLIANT**"
+            status_text = "**COMPLIANT**"
         elif summary.compliance_rate >= 70:
-            status_text = "**⚠️ WARNING**"
+            status_text = "**WARNING**"
         else:
-            status_text = "**🚨 VIOLATIONS DETECTED**"
+            status_text = "**VIOLATIONS DETECTED**"
 
         live_stats = (
             f"{status_text}\n\n"
@@ -164,17 +165,24 @@ def build_demo(
         history_md = _render_history(state["scan_history"])
         return annotated_img, live_stats, history_md, alert_trigger, state
 
-    with gr.Blocks(title="PPE Compliance Detector") as demo:
+    theme = gr.themes.Soft(
+        primary_hue="orange",
+        secondary_hue="amber",
+        neutral_hue="slate",
+        font=[fonts.GoogleFont("Inter"), "system-ui", "sans-serif"],
+    )
+
+    with gr.Blocks(title="PPE Compliance Detector", theme=theme) as demo:
         gr.Markdown(
-            "# 🦺 PPE Compliance Detector\n\n"
+            "# PPE Compliance Detector\n\n"
             "AI-powered construction site safety monitoring. Upload site photos or use "
             "your webcam to detect PPE violations instantly."
         )
         if model_type == "custom":
-            gr.Markdown("✅ **Using custom-trained PPE detection model**")
+            gr.Markdown("**Using custom-trained PPE detection model**")
         else:
             gr.Markdown(
-                "⚠️ **Using fallback YOLOv8s model** — upload `ppe_detector_best.pt` "
+                "**Using fallback YOLOv8s model** — upload `ppe_detector_best.pt` "
                 "for PPE-specific detection"
             )
 
@@ -188,7 +196,7 @@ def build_demo(
         )
 
         with gr.Tabs():
-            with gr.TabItem("📷 Upload Image"):
+            with gr.TabItem("Upload Image"):
                 with gr.Row():
                     with gr.Column():
                         image_input = gr.Image(
@@ -197,7 +205,7 @@ def build_demo(
                             sources=["upload", "clipboard"],
                         )
                         detect_btn = gr.Button(
-                            "🔍 Analyze Safety Compliance",
+                            "Analyze Safety Compliance",
                             variant="primary",
                             size="lg",
                         )
@@ -205,6 +213,21 @@ def build_demo(
                         image_output = gr.Image(label="Detection Results")
                 report_md = gr.Markdown(label="Compliance Report")
                 download_file = gr.File(label="Download Report (.txt)")
+                gr.Examples(
+                    examples=[
+                        ["examples/site_01.jpg", 0.35],
+                        ["examples/site_02.jpg", 0.35],
+                        ["examples/site_03.jpg", 0.35],
+                        ["examples/site_04.jpg", 0.35],
+                        ["examples/site_05.jpg", 0.35],
+                        ["examples/site_06.jpg", 0.35],
+                    ],
+                    inputs=[image_input, confidence_slider],
+                    outputs=[image_output, report_md, download_file],
+                    fn=_detect_image,
+                    cache_examples=False,
+                    label="Try Example Images",
+                )
 
                 detect_btn.click(
                     fn=_detect_image,
@@ -212,7 +235,7 @@ def build_demo(
                     outputs=[image_output, report_md, download_file],
                 )
 
-            with gr.TabItem("🎥 Live Monitoring"):
+            with gr.TabItem("Live Monitoring"):
                 gr.Markdown(
                     "> **Real-time PPE monitoring.** Point your camera at workers to "
                     "check compliance instantly."
