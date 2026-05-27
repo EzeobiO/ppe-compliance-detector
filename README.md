@@ -5,6 +5,7 @@ colorFrom: yellow
 colorTo: red
 sdk: gradio
 sdk_version: 6.4.0
+python_version: '3.11'
 app_file: app.py
 pinned: false
 license: mit
@@ -25,7 +26,7 @@ Real-time construction site safety monitoring powered by a custom-trained YOLOv8
 
 [![CI](https://github.com/EzeobiO/ppe-compliance-detector/actions/workflows/ci.yml/badge.svg)](https://github.com/EzeobiO/ppe-compliance-detector/actions/workflows/ci.yml)
 [![Deploy](https://github.com/EzeobiO/ppe-compliance-detector/actions/workflows/deploy.yml/badge.svg)](https://github.com/EzeobiO/ppe-compliance-detector/actions/workflows/deploy.yml)
-[![Hugging Face](https://img.shields.io/badge/🤗%20Space-Live%20Demo-yellow)](https://huggingface.co/spaces/EzeobiO/ppe-compliance-detector)
+[![Hugging Face](https://img.shields.io/badge/🤗%20Space-Live%20Demo-yellow)](https://huggingface.co/spaces/Ezeobi-O/ppe-compliance-detector)
 ![YOLOv8](https://img.shields.io/badge/YOLOv8s-Custom%20Trained-blue)
 ![Gradio](https://img.shields.io/badge/Gradio-6.4.0-orange)
 ![Python](https://img.shields.io/badge/Python-3.11-green)
@@ -39,12 +40,11 @@ Real-time construction site safety monitoring powered by a custom-trained YOLOv8
 |-----------|--------|--------|
 | Hardhat | ✅ Compliant | 🟢 Green box |
 | Mask | ✅ Compliant | 🟢 Green box |
-| Gloves | ✅ Compliant | 🟢 Green box |
 | Safety Vest | ✅ Compliant | 🟢 Green box |
 | NO-Hardhat | 🚨 Violation | 🔴 Red box |
 | NO-Mask | 🚨 Violation | 🔴 Red box |
 | NO-Safety Vest | 🚨 Violation | 🔴 Red box |
-| Person, machinery, vehicles, etc. | ℹ️ Context | 🟠 Orange box |
+| Person, Safety Cone, machinery, vehicle | ℹ️ Context | 🟠 Orange box |
 
 ---
 
@@ -132,7 +132,7 @@ reusable `ci.yml` first. The Space is only updated if all checks pass.
 **Required secret:** add `HF_TOKEN` (a Hugging Face write token) to your GitHub
 repository at Settings → Secrets and variables → Actions.
 
-The live Space: [huggingface.co/spaces/EzeobiO/ppe-compliance-detector](https://huggingface.co/spaces/EzeobiO/ppe-compliance-detector)
+The live Space: [huggingface.co/spaces/Ezeobi-O/ppe-compliance-detector](https://huggingface.co/spaces/Ezeobi-O/ppe-compliance-detector)
 
 ---
 
@@ -152,7 +152,7 @@ pytest -v
 |-----------|--------|
 | Detection model | YOLOv8s fine-tuned, 25 classes |
 | Training | 50 epochs, image size 640, batch 16, T4 GPU |
-| UI framework | Gradio 4.44 (Blocks) |
+| UI framework | Gradio 6.4.0 (Blocks) |
 | Dataset | Roboflow Construction Site Safety v30 (~2,600 images) |
 
 ---
