@@ -11,11 +11,13 @@ build/
 # Generated reports (use tempfile; don't commit leaked outputs)
 ppe_report_*.txt
 
-# IDE / OS
+# IDE / OS / AI tooling
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
+.claude/
+.cursor/
 
 # YOLO training runs
 runs/

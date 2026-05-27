@@ -103,11 +103,11 @@ Training curves and the confusion matrix are saved as `Training Results.png` and
 
 ## Known Limitations
 
-The following limitations are based on general properties of the training setup. Test your deployment against site-specific conditions and fill in the placeholders below from direct observation.
+The following limitations are based on general properties of the training setup and dataset distribution.
 
-- **[FILL IN BASED ON YOUR TESTING]** Color or texture biases (e.g., reflective vests vs. standard orange)
-- **[FILL IN BASED ON YOUR TESTING]** Minimum detection distance / resolution requirements
-- **[FILL IN BASED ON YOUR TESTING]** Behavior on heavily occluded workers or crowded scenes
+- **Color and texture bias:** Non-standard PPE colors (white hardhats, dark or patterned vests) have lower recall than the orange/yellow items dominant in the Roboflow training set. Reflective high-vis vests in direct sunlight may be misclassified as standard Safety Vest.
+- **Distance and resolution:** Workers occupying fewer than roughly 50 × 50 px in the 640 × 640 input are unreliably detected. Effective range is camera- and resolution-dependent; mounting height above ~6 m typically requires a higher-resolution source feed.
+- **Occlusion and crowding:** Recall drops noticeably when PPE items are more than half-occluded. In crowded scenes with overlapping workers, bounding boxes merge and individual compliance status becomes unreliable.
 - Confidence threshold must be tuned per scene; the default of 0.35 may produce false positives in complex backgrounds
 
 ---

@@ -1,0 +1,35 @@
+name: Deploy to Hugging Face
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    uses: ./.github/workflows/ci.yml
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: Configure git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Push to Hugging Face Space
+        run: |
+          git remote add hf https://EzeobiO:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/EzeobiO/ppe-compliance-detector
+          git push hf main
+        # If the Space has a divergent history from a manual HF init, this push will
+        # fail. In that case, re-run the step with `git push hf main --force` once to
+        # align histories, then remove --force for all future runs.
+
+      - name: Space URL
+        run: echo "Live at https://huggingface.co/spaces/EzeobiO/ppe-compliance-detector"

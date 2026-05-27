@@ -24,8 +24,10 @@ Real-time construction site safety monitoring powered by a custom-trained YOLOv8
 **Developed by [Ebube Ezeobi](https://obie-ezeobi.vercel.app)**
 
 [![CI](https://github.com/EzeobiO/ppe-compliance-detector/actions/workflows/ci.yml/badge.svg)](https://github.com/EzeobiO/ppe-compliance-detector/actions/workflows/ci.yml)
+[![Deploy](https://github.com/EzeobiO/ppe-compliance-detector/actions/workflows/deploy.yml/badge.svg)](https://github.com/EzeobiO/ppe-compliance-detector/actions/workflows/deploy.yml)
+[![Hugging Face](https://img.shields.io/badge/🤗%20Space-Live%20Demo-yellow)](https://huggingface.co/spaces/EzeobiO/ppe-compliance-detector)
 ![YOLOv8](https://img.shields.io/badge/YOLOv8s-Custom%20Trained-blue)
-![Gradio](https://img.shields.io/badge/Gradio-4.44-orange)
+![Gradio](https://img.shields.io/badge/Gradio-6.4.0-orange)
 ![Python](https://img.shields.io/badge/Python-3.11-green)
 ![License](https://img.shields.io/badge/License-MIT-purple)
 
@@ -111,13 +113,26 @@ ppe-compliance-detector/
 │   ├── test_detection.py    # Tests for classify_by_id, summarize, extract_detections
 │   └── test_reports.py      # Tests for render_markdown, render_text, write_report_tempfile
 ├── .github/workflows/
-│   └── ci.yml               # Ruff lint + pytest on every push / PR
+│   ├── ci.yml               # Ruff lint + pytest on every push / PR (reusable)
+│   └── deploy.yml           # Deploys to HF Space on push to main (calls ci.yml)
 ├── ppe_detector_best.pt     # Fine-tuned model weights
 ├── train_ppe_detector.ipynb # Training notebook (Google Colab)
 ├── MODEL_CARD.md            # Model card: dataset, classes, metrics, limitations
 ├── requirements.txt         # Pinned dependencies
 └── LICENSE                  # MIT
 ```
+
+---
+
+## Deployment
+
+Every push to `main` triggers `deploy.yml`, which runs CI (lint + tests) via the
+reusable `ci.yml` first. The Space is only updated if all checks pass.
+
+**Required secret:** add `HF_TOKEN` (a Hugging Face write token) to your GitHub
+repository at Settings → Secrets and variables → Actions.
+
+The live Space: [huggingface.co/spaces/EzeobiO/ppe-compliance-detector](https://huggingface.co/spaces/EzeobiO/ppe-compliance-detector)
 
 ---
 
