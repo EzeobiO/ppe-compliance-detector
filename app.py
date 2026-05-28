@@ -5,6 +5,9 @@ from __future__ import annotations
 
 import logging
 
+from gradio.themes import Soft
+from gradio.themes.utils import fonts
+
 from model import load_model
 from ui import build_demo
 
@@ -20,8 +23,14 @@ def main() -> None:
     class_names: dict[int, str] = model.names  # type: ignore[assignment]
     logger.info("Model type: %s | Classes: %d", model_type, len(class_names))
     demo = build_demo(model, model_type, class_names)
+    theme = Soft(
+        primary_hue="orange",
+        secondary_hue="amber",
+        neutral_hue="slate",
+        font=[fonts.GoogleFont("Inter"), "system-ui", "sans-serif"],
+    )
     demo.launch(
-        theme="soft",
+        theme=theme,
         css=".gradio-container { max-width: 1400px !important; }",
     )
 

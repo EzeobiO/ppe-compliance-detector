@@ -11,8 +11,6 @@ from datetime import datetime
 from typing import Any
 
 import gradio as gr
-from gradio.themes import Soft
-from gradio.themes.utils import fonts
 
 from config import (
     ALERT_COOLDOWN_SECONDS,
@@ -166,14 +164,7 @@ def build_demo(
         history_md = _render_history(state["scan_history"])
         return annotated_img, live_stats, history_md, alert_trigger, state
 
-    theme = Soft(
-        primary_hue="orange",
-        secondary_hue="amber",
-        neutral_hue="slate",
-        font=[fonts.GoogleFont("Inter"), "system-ui", "sans-serif"],
-    )
-
-    with gr.Blocks(title="PPE Compliance Detector", theme=theme) as demo:
+    with gr.Blocks(title="PPE Compliance Detector") as demo:
         gr.Markdown(
             "# PPE Compliance Detector\n\n"
             "AI-powered construction site safety monitoring. Upload site photos or use "
