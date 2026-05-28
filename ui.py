@@ -11,6 +11,7 @@ from datetime import datetime
 from typing import Any
 
 import gradio as gr
+from gradio.themes import Soft
 from gradio.themes.utils import fonts
 
 from config import (
@@ -165,7 +166,7 @@ def build_demo(
         history_md = _render_history(state["scan_history"])
         return annotated_img, live_stats, history_md, alert_trigger, state
 
-    theme = gr.themes.Soft(
+    theme = Soft(
         primary_hue="orange",
         secondary_hue="amber",
         neutral_hue="slate",
@@ -215,12 +216,12 @@ def build_demo(
                 download_file = gr.File(label="Download Report (.txt)")
                 gr.Examples(
                     examples=[
-                        ["examples/site_01.jpg", 0.35],
-                        ["examples/site_02.jpg", 0.35],
-                        ["examples/site_03.jpg", 0.35],
-                        ["examples/site_04.jpg", 0.35],
-                        ["examples/site_05.jpg", 0.35],
-                        ["examples/site_06.jpg", 0.35],
+                        ["examples/site_01.jpg", 0.5],
+                        ["examples/site_02.jpg", 0.5],
+                        ["examples/site_03.jpg", 0.5],
+                        ["examples/site_04.jpg", 0.5],
+                        ["examples/site_05.jpg", 0.5],
+                        ["examples/site_06.jpg", 0.5],
                     ],
                     inputs=[image_input, confidence_slider],
                     outputs=[image_output, report_md, download_file],

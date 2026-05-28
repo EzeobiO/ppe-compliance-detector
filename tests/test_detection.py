@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import pytest
 
-from detection import Detection, classify_by_id, extract_detections, summarize
+from detection import Detection, Status, classify_by_id, extract_detections, summarize
 
 
 # ---------------------------------------------------------------------------
@@ -34,7 +34,7 @@ def test_classify_unknown_defaults_to_context(cls_id: int) -> None:
 # Summary Helpers
 # ---------------------------------------------------------------------------
 
-def _det(status: str) -> Detection:
+def _det(status: Status) -> Detection:
     return Detection(
         class_name="test",
         class_id=0,

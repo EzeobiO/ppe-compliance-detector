@@ -2,14 +2,15 @@
 from __future__ import annotations
 
 import os
+from collections.abc import Iterator
 
 import pytest
 
-from detection import ComplianceSummary, Detection
+from detection import ComplianceSummary, Detection, Status
 from reports import render_markdown, render_text, write_report_tempfile
 
 
-def _det(status: str, class_name: str = "Hardhat", conf: float = 0.9) -> Detection:
+def _det(status: Status, class_name: str = "Hardhat", conf: float = 0.9) -> Detection:
     return Detection(
         class_name=class_name,
         class_id=0,
@@ -105,7 +106,7 @@ def test_render_text_contains_inference_time() -> None:
 # write_report_tempfile
 
 @pytest.fixture
-def written_report() -> tuple[str, str]:  # type: ignore[type-arg]
+def written_report() -> Iterator[tuple[str, str]]:
     content = "PPE Test Report\nLine two."
     path = write_report_tempfile(content)
     yield path, content
