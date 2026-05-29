@@ -16,13 +16,14 @@
 
 | Hyperparameter | Value |
 |----------------|-------|
-| Epochs | 50 |
+| Epochs configured | 100 |
+| Epochs run | 55 (early stopping; best checkpoint at epoch 45) |
 | Image size | 640 |
 | Batch size | 16 |
 | Early stopping patience | 10 |
 | Augmentations | Default Ultralytics (mosaic, HSV, scale, translate, fliplr) |
 | Hardware | Google Colab T4 GPU |
-| Training time | ~45–60 min |
+| Training time | ~45-60 min |
 
 ---
 
@@ -73,15 +74,17 @@ Source: https://universe.roboflow.com/roboflow-universe-projects/construction-si
 
 ## Performance
 
-Evaluated on the Roboflow-provided test split.
+Evaluated on the Roboflow-provided validation split (114 images, 733 instances).
 
 | Metric | Score |
 |--------|-------|
-| mAP50 | ~0.85 |
-| mAP50-95 | ~0.65 |
-| Inference (T4 GPU) | ~25 ms |
+| mAP50 | 0.614 |
+| mAP50-95 | 0.423 |
+| Precision | 0.802 |
+| Recall | 0.492 |
+| Inference speed | ~19 ms/image (T4 GPU) |
 
-Training curves and the confusion matrix are saved as `Training Results.png` and `Confusion Matrix.png` in the repository root.
+Training curves and the confusion matrix are saved as `training/training_results.png` and `training/confusion_matrix.png`. The training notebook is at `training/train_ppe_detector.ipynb`.
 
 ---
 

@@ -89,9 +89,21 @@ Trained on [Roboflow Construction Site Safety v30](https://universe.roboflow.com
 
 | Metric | Score |
 |--------|-------|
-| mAP50 | ~0.85 |
-| mAP50-95 | ~0.65 |
-| Inference | ~25 ms (T4 GPU) |
+| mAP50 | 0.614 |
+| mAP50-95 | 0.423 |
+| Precision | 0.802 |
+| Recall | 0.492 |
+| Inference | ~19 ms/image (T4 GPU) |
+
+Training notebook: [`training/train_ppe_detector.ipynb`](training/train_ppe_detector.ipynb)
+
+### Loss and Metric Curves
+
+![Training Results](training/training_results.png)
+
+### Validation Confusion Matrix
+
+![Confusion Matrix](training/confusion_matrix.png)
 
 See [`MODEL_CARD.md`](MODEL_CARD.md) for full training details and limitations.
 
@@ -113,8 +125,11 @@ ppe-compliance-detector/
 ├── .github/workflows/
 │   ├── ci.yml               # Ruff lint + pytest on every push / PR (reusable)
 │   └── deploy.yml           # Deploys to HF Space on push to main (calls ci.yml)
+├── training/
+│   ├── train_ppe_detector.ipynb  # Training notebook (Google Colab)
+│   ├── training_results.png      # Loss and metric curves
+│   └── confusion_matrix.png      # Validation confusion matrix
 ├── ppe_detector_best.pt     # Fine-tuned model weights
-├── train_ppe_detector.ipynb # Training notebook (Google Colab)
 ├── MODEL_CARD.md            # Model card: dataset, classes, metrics, limitations
 ├── requirements.txt         # Pinned dependencies
 └── LICENSE                  # MIT
@@ -142,7 +157,7 @@ pytest -v
 | Component | Choice |
 |-----------|--------|
 | Detection model | YOLOv8s fine-tuned, 25 classes |
-| Training | 50 epochs, image size 640, batch 16, T4 GPU |
+| Training | 100 epochs configured (stopped at epoch 55, best at 45), image size 640, batch 16, T4 GPU |
 | UI framework | Gradio 6.4.0 (Blocks) |
 | Dataset | Roboflow Construction Site Safety v30 (~2,600 images) |
 
